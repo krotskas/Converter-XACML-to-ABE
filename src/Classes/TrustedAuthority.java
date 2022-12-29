@@ -2,10 +2,10 @@ package Classes;
 import fame.*;
 import java.security.NoSuchAlgorithmException;
 
-public class FameTrustedAuthority {
+public class TrustedAuthority {
     private FAME cpabe;
 
-    public FameTrustedAuthority(FAME cpabe) {
+    public TrustedAuthority(FAME cpabe) {
         this.cpabe=cpabe;
     }
 

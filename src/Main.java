@@ -1,6 +1,6 @@
 import Classes.DocAttributes;
 import Classes.EncDecSoftware;
-import Classes.FameTrustedAuthority;
+import Classes.TrustedAuthority;
 import fame.*;
 
 
@@ -14,7 +14,7 @@ public class Main {
 
         String message = "Ο ασθενης πασχει απο ωτιτιδα";
 
-        FameTrustedAuthority TA=new FameTrustedAuthority(cpabe);
+        TrustedAuthority TA=new TrustedAuthority(cpabe);
         FAMEMasterKey mskey=TA.Setup();
         FAMESecretKey sk= TA.SecretKey(mskey, doctor.getAttributes());
         FAMECipherText cpt= system.Encrypt(system.AbacToAbe("Policies/policy.xml"),message);
