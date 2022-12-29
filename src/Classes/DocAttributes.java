@@ -13,6 +13,13 @@ public class DocAttributes extends Doctor {
         this.hospital=hospital;
     }
 
+
+    public String [] getAttributes(){
+        String id=Integer.toString(getId());
+        String [] attrs={id,getSector(),getHospital()};
+        return attrs;
+    }
+
     public String getSector() {
         return sector;
     }

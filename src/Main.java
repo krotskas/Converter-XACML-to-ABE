@@ -1,14 +1,25 @@
 import Classes.DocAttributes;
-import Classes.Doctor;
 import Classes.EncDecSoftware;
-import org.xml.sax.SAXException;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
+import Classes.FameTrustedAuthority;
+import fame.*;
+
 
 public class Main {
-    public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
+    public static void main(String[] args) throws Exception {
 
+        FAME cpabe=new FAME();
 
+        DocAttributes doctor=new DocAttributes(12345,"kwstas","1234567890","kwstas@gmail.com","kwstas","rotskas","Wrilas","GN Lamias");
+        EncDecSoftware system=new EncDecSoftware(cpabe);
+
+        String message = "Ο ασθενης πασχει απο ωτιτιδα";
+
+        FameTrustedAuthority TA=new FameTrustedAuthority(cpabe);
+        FAMEMasterKey mskey=TA.Setup();
+        FAMESecretKey sk= TA.SecretKey(mskey, doctor.getAttributes());
+        FAMECipherText cpt= system.Encrypt(system.AbacToAbe("Policies/policy.xml"),message);
+        String decrypted_mess= system.Decrypt(sk,cpt);
+        System.out.println(decrypted_mess);
 
     }
 

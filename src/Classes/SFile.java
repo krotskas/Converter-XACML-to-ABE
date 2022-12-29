@@ -5,7 +5,7 @@ import java.io.File;
 public class SFile {
 
     String pathname;
-    File policy=new File(pathname);
+    File policy;
     int file_id;
     String patient_name,mess;
 

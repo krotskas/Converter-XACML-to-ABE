@@ -13,7 +13,7 @@
                     <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" AttributeId="Sector" DataType="string" Issuer="" MustBePresent="true"/>
                 </Match>
                 <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                    <AttributeValue DataType="string">GNLamias</AttributeValue>
+                    <AttributeValue DataType="string">GN Lamias</AttributeValue>
                     <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment" AttributeId="Hospital" DataType="string" Issuer="" MustBePresent="true"/>
                 </Match>
             </AllOf>
@@ -33,7 +33,7 @@
                         <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" AttributeId="Sector" DataType="string" Issuer="" MustBePresent="true"/>
                     </Match>
                     <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="string">GNLamias</AttributeValue>
+                        <AttributeValue DataType="string">GN Lamias</AttributeValue>
                         <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment" AttributeId="Hospital" DataType="string" Issuer="" MustBePresent="true"/>
                     </Match>
                 </AllOf>

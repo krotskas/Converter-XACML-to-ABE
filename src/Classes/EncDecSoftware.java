@@ -1,11 +1,12 @@
 package Classes;
-
+import fame.FAME;
+import fame.FAMECipherText;
+import fame.FAMESecretKey;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -17,7 +18,10 @@ import java.util.List;
 public class EncDecSoftware {
 
 
-    public EncDecSoftware() {
+    private FAME cpabe;
+
+    public EncDecSoftware(FAME cpabe) {
+        this.cpabe=cpabe;
     }
 
     public String AbacToAbe(String pathfile) throws ParserConfigurationException, IOException, SAXException {
@@ -66,6 +70,22 @@ public class EncDecSoftware {
         {
             return  "Exoume mesa OR opote h fame den mporei na to diaxeiristei!!!";
         }
+    }
+
+    public FAMECipherText Encrypt(String logExp, String message) throws Exception {
+        FAMECipherText cpt = cpabe.encrypt(logExp, message.getBytes());
+        System.out.println("~~~~ Encryption Complete ~~~~");
+        return cpt;
+
+    }
+
+    public String Decrypt(FAMESecretKey sk, FAMECipherText cpt) throws Exception {
+        byte[] decrypted = cpabe.decrypt(sk, cpt);
+        System.out.println("~~~~ Decryption Complete ~~~~");
+
+        String dec_message = new String(decrypted);
+
+        return dec_message;
     }
 
 }
