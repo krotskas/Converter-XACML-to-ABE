@@ -1,4 +1,4 @@
-package Classes;
+package Items;
 import fame.FAME;
 import fame.FAMECipherText;
 import fame.FAMESecretKey;
@@ -53,8 +53,8 @@ public class EncDecSoftware {
                     if (node.getNodeType() == Node.ELEMENT_NODE)
                     {
                         Element element=(Element) node;
-                        String firstname = element.getElementsByTagName("AttributeValue").item(0).getTextContent();
-                        Attributes.add(firstname);
+                        String attrs = element.getElementsByTagName("AttributeValue").item(0).getTextContent();
+                        Attributes.add(attrs);
                     }
                 }
                 else

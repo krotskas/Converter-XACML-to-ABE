@@ -29,11 +29,11 @@
                         <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:subject" AttributeId="Classes.Doctor" DataType="string" Issuer="" MustBePresent="true"/>
                     </Match>
                     <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="string">Wrilas</AttributeValue>
+                        <AttributeValue DataType="string">wrilas</AttributeValue>
                         <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" AttributeId="Sector" DataType="string" Issuer="" MustBePresent="true"/>
                     </Match>
                     <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="string">GN Lamias</AttributeValue>
+                        <AttributeValue DataType="string">lamias</AttributeValue>
                         <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment" AttributeId="Hospital" DataType="string" Issuer="" MustBePresent="true"/>
                     </Match>
                 </AllOf>
