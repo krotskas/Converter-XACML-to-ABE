@@ -21,6 +21,7 @@ public class Main {
         TrustedAuthority TA=new TrustedAuthority(cpabe);
         EncDecSoftware EDS=new EncDecSoftware(cpabe);
         Handler hnd=new Handler(cpabe,EDS,TA,us);
+
         System.out.println("~~~~WELCOME TO THE ED SOFTWARE~~~~");
 
 

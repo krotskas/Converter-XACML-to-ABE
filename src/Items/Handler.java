@@ -39,21 +39,22 @@ public class Handler {
         switch (choice){
             case 1:
                 view();
-                menu();
+                break;
             case 2:
                 upload();
                 menu();
+                break;
             case 3:
                 System.out.println("Exit");
                 break;
             default:
                 System.out.println("Please select right choise!!!!!");
                 menu();
-
         }
     }
 
     private void view() throws Exception {
+
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println();
         for (Map.Entry<Integer,Data> entry:dl.dt.entrySet()) {
@@ -61,13 +62,18 @@ public class Handler {
             System.out.println("Patient_ID:"+tempd.getId()+"\t"+"Patient_Name:"+tempd.getName()+"\t"+"Patient_Surname:"+tempd.getSurname()+"\t"+"Sector:"+tempd.getSector()+"\t"+"Hospital:"+tempd.getHospital());
 
         }
-        System.out.println("Which Patient do you want to visit (Select with ID):");
+        System.out.println("Which Patient do you want to visit (Select with ID), to go back press 0:");
         Scanner in=new Scanner(System.in);
         int choice=in.nextInt();
         if (choice==0){
             menu();
-        }else {
+        } else if (dl.dt.containsKey(choice)) {
             download(choice);
+        }
+        else
+        {
+           System.out.println("Please Enter ID which exists");
+           view();
         }
     }
 
@@ -75,6 +81,7 @@ public class Handler {
         Data decd= dl.dt.get(choice);
         String decmess= eds.Decrypt(ta.SecretKey(msk,us.attrs.values().toArray(new String[0])), decd.cpt);
         System.out.println(decmess);
+        menu();
     }
 
     private void upload() throws Exception {
