@@ -39,7 +39,7 @@ public class EncDecSoftware {
     }
 
     public String AnyOfHandler(NodeList AnyOfChild) {
-        String logicalExp;
+        String logicalExp="";
 
         if ((AnyOfChild.getLength()-1)/2 == 1)
         {
@@ -60,10 +60,10 @@ public class EncDecSoftware {
                 else
                 {
                     NodeList insAnyOfChild=node.getChildNodes();
-                    return logicalExp=AnyOfHandler(insAnyOfChild);
+                    return logicalExp=logicalExp+AnyOfHandler(insAnyOfChild);
                 }
             }
-            logicalExp=String.join(" and ", Attributes);
+            logicalExp=logicalExp+String.join(" and ", Attributes);
             return logicalExp;
         }
         else
