@@ -5,10 +5,6 @@
         <AnyOf>
             <AllOf>
                 <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                    <AttributeValue DataType="string">67890</AttributeValue>
-                    <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:subject" AttributeId="doct_id" DataType="string" Issuer="" MustBePresent="true"/>
-                </Match>
-                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
                     <AttributeValue DataType="string">pneumonologiko</AttributeValue>
                     <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" AttributeId="sect" DataType="string" Issuer="" MustBePresent="true"/>
                 </Match>
@@ -24,10 +20,6 @@
         <Target>
             <AnyOf>
                 <AllOf>
-                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="string">67890</AttributeValue>
-                        <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:subject" AttributeId="doct_id" DataType="string" Issuer="" MustBePresent="true"/>
-                    </Match>
                     <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
                         <AttributeValue DataType="string">pneumonologiko</AttributeValue>
                         <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" AttributeId="sect" DataType="string" Issuer="" MustBePresent="true"/>

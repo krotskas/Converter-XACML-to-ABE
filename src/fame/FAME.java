@@ -299,38 +299,46 @@ public class FAME {
 
     public byte[] decrypt(FAMESecretKey key, FAMECipherText ctxt) throws Exception {
 
-        for (String attr : ctxt.C.keySet()) {
-            if (!key.K.containsKey(attr)) {
-                System.err.println("Policy not satisfied. ("+attr+")");
-                System.exit(2);
+        try {
+            for (String attr : ctxt.C.keySet()) {
+                if (!key.K.containsKey(attr)) {
+                    //System.err.println("Policy not satisfied. ("+attr+")");
+                    //System.exit(2);
+                }
             }
+
+            // decrypt the intermediate AES key:
+            Element prod1_GT = GT.newOneElement();
+            Element prod2_GT = GT.newOneElement();
+
+            for (int i=0; i<DLIN+1; i++) {
+                Element prod_H = G.newOneElement();
+                Element prod_G = G.newOneElement();
+
+                for (String node : ctxt.C.keySet()) {
+                    String attr = node;             // will be useful if MSP is complete
+                    String attr_stripped = node;    // no need
+                    prod_H.mul(key.K.get(attr_stripped).get(i));
+                    prod_G.mul(ctxt.C.get(attr).get(i));
+                    //System.out.println("attr_stripped=\""+attr_stripped+"\", i="+i);
+                }
+                Element kp_prodH = key.Kp.get(i).duplicate();
+                kp_prodH.mul(prod_H);
+                prod1_GT.mul(pk.pairing.pairing(kp_prodH, ctxt.C_0.get(i)));
+                prod2_GT.mul(pk.pairing.pairing(prod_G, key.K_0.get(i)));
+            }
+            Element aesKey = ctxt.Cp.duplicate();
+            aesKey.mul(prod2_GT);
+            aesKey.div(prod1_GT);
+
+            // Use the AES key to decrypt the message:
+            //System.out.println("Decryption AES Key: " + aesKey.toBigInteger());
+            return AESCoder.decrypt(aesKey.toBytes(), ctxt.aesBuf);
+        }catch (Exception e){
+            String mess="You Dont Have Authority Thief!!!!!";
+            return  mess.getBytes();
         }
 
-        // decrypt the intermediate AES key:
-        Element prod1_GT = GT.newOneElement();
-        Element prod2_GT = GT.newOneElement();
-        for (int i=0; i<DLIN+1; i++) {
-            Element prod_H = G.newOneElement();
-            Element prod_G = G.newOneElement();
-            for (String node : ctxt.C.keySet()) {
-                String attr = node;             // will be useful if MSP is complete
-                String attr_stripped = node;    // no need
-                prod_H.mul(key.K.get(attr_stripped).get(i));
-                prod_G.mul(ctxt.C.get(attr).get(i));
-                //System.out.println("attr_stripped=\""+attr_stripped+"\", i="+i);
-            }
-            Element kp_prodH = key.Kp.get(i).duplicate();
-            kp_prodH.mul(prod_H);
-            prod1_GT.mul(pk.pairing.pairing(kp_prodH, ctxt.C_0.get(i)));
-            prod2_GT.mul(pk.pairing.pairing(prod_G, key.K_0.get(i)));
-        }
-        Element aesKey = ctxt.Cp.duplicate();
-        aesKey.mul(prod2_GT);
-        aesKey.div(prod1_GT);
-
-        // Use the AES key to decrypt the message:
-        //System.out.println("Decryption AES Key: " + aesKey.toBigInteger());
-        return AESCoder.decrypt(aesKey.toBytes(), ctxt.aesBuf);
     }
 
     private static void elementFromString(Element h, String s)

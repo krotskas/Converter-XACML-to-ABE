@@ -12,7 +12,6 @@ import java.util.Scanner;
 public class Main {
 
 
-
     public static void main(String[] args) throws Exception {
 
         FAME cpabe=new FAME();
