@@ -335,7 +335,7 @@ public class FAME {
             //System.out.println("Decryption AES Key: " + aesKey.toBigInteger());
             return AESCoder.decrypt(aesKey.toBytes(), ctxt.aesBuf);
         }catch (Exception e){
-            String mess="You Dont Have Authority Thief!!!!!";
+            String mess="You Dont Have Authority!!!!!";
             return  mess.getBytes();
         }
 

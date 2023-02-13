@@ -26,8 +26,8 @@ public class Main {
 
         System.out.println("Your Attributes are: ");
         user1.put("id","12345");
-        user1.put("username","krotskas");
-        user1.put("email","kostasrotskas@gmail.com");
+        user1.put("username","John Davies");
+        user1.put("email","JDavies@gmail.com");
         user1.put("sector","wrilas");
         user1.put("hospital","lamias");
         for (Map.Entry<String, String> me : user1.entrySet()) {

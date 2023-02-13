@@ -80,7 +80,15 @@ public class Handler {
     private void download(int choice) throws Exception {
         Data decd= dl.dt.get(choice);
         String decmess= eds.Decrypt(ta.SecretKey(msk,us.attrs.values().toArray(new String[0])), decd.cpt);
-        System.out.println(decmess);
+        if (decmess.equals("You Dont Have Authority!!!!!"))
+        {
+            System.out.println("You Dont Have Authority!!!!!");
+        }else
+        {
+            System.out.println("The Protected Data are: "+decmess);
+        }
+
+        //cpabe.printParameters(cpabe.setup(), cpabe.keygen(cpabe.setup(), us.attrs.values().toArray(new String[0])));
         menu();
     }
 

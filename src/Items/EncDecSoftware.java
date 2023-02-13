@@ -81,10 +81,7 @@ public class EncDecSoftware {
 
     public String Decrypt(FAMESecretKey sk, FAMECipherText cpt) throws Exception {
         byte[] decrypted = cpabe.decrypt(sk, cpt);
-        System.out.println("~~~~ Decryption Complete ~~~~");
-
         String dec_message = new String(decrypted);
-
         return dec_message;
     }
 
