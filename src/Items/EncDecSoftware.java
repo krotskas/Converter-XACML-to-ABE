@@ -31,11 +31,31 @@ public class EncDecSoftware {
         Document document= builder.parse(new File(pathfile));
         document.getDocumentElement().normalize();
         NodeList rule= document.getElementsByTagName("Rule");
-        NodeList rulechilds=rule.item(0).getChildNodes();
-        NodeList targetchilds=rulechilds.item(3).getChildNodes();
-        NodeList AnyOfChild=targetchilds.item(1).getChildNodes();
-        logicalExp=AnyOfHandler(AnyOfChild);
-        return logicalExp;
+        Node nNode=rule.item(0);
+        if (nNode.getNodeType() == Node.ELEMENT_NODE)
+        {
+            Element eElement = (Element) nNode;
+            String effect= eElement.getAttribute("Effect");
+            NodeList rulechilds=rule.item(0).getChildNodes();
+            NodeList targetchilds=rulechilds.item(3).getChildNodes();
+            NodeList AnyOfChild=targetchilds.item(1).getChildNodes();
+            if (effect.equals("Permit"))
+            {
+                logicalExp=AnyOfHandler(AnyOfChild);
+                return logicalExp;
+            }
+            else
+            {
+                logicalExp=AnyOfHandler(AnyOfChild);
+                return "!"+logicalExp;
+            }
+        }
+        else {
+            return "Something was Wrong!!!!!";
+        }
+
+
+
     }
 
     public String AnyOfHandler(NodeList AnyOfChild) {
