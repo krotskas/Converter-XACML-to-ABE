@@ -59,7 +59,8 @@ public class Handler {
         System.out.println();
         for (Map.Entry<Integer,Data> entry:dl.dt.entrySet()) {
             Data tempd=entry.getValue();
-            System.out.println("Patient_ID:"+tempd.getId()+"\t"+"Patient_Name:"+tempd.getName()+"\t"+"Patient_Surname:"+tempd.getSurname()+"\t"+"Sector:"+tempd.getSector()+"\t"+"Hospital:"+tempd.getHospital());
+            System.out.println("Patient_ID:"+tempd.getId()+"\t"+"Patient_Name:"+tempd.getName()+"\t"+"Patient_Surname:"+tempd.getSurname()+"\t"+"Sector:"+tempd.getSector()+"\t"+
+                    "Hospital:"+tempd.getHospital());
 
         }
         System.out.println("Which Patient do you want to visit (Select with ID), to go back press 0:");

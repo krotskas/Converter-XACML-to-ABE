@@ -28,8 +28,8 @@ public class Main {
         user1.put("id","12345");
         user1.put("username","John Davies");
         user1.put("email","JDavies@gmail.com");
-        user1.put("sector","wrilas");
-        user1.put("hospital","lamias");
+        user1.put("sector","Πνευμονολογικό");
+        user1.put("hospital","ΓΝ Λαμίας");
         for (Map.Entry<String, String> me : user1.entrySet()) {
             System.out.print(me.getKey() + ":");
             System.out.println(me.getValue());

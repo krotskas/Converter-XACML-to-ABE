@@ -5,11 +5,11 @@
         <AnyOf>
             <AllOf>
                 <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                    <AttributeValue DataType="string">pneumonologiko</AttributeValue>
+                    <AttributeValue DataType="string">Πνευμονολογικό</AttributeValue>
                     <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" AttributeId="sect" DataType="string" Issuer="" MustBePresent="true"/>
                 </Match>
                 <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                    <AttributeValue DataType="string">flwrinas</AttributeValue>
+                    <AttributeValue DataType="string">ΓΝ Λαμίας</AttributeValue>
                     <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment" AttributeId="hosp" DataType="string" Issuer="" MustBePresent="true"/>
                 </Match>
             </AllOf>
@@ -21,11 +21,11 @@
             <AnyOf>
                 <AllOf>
                     <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="string">pneumonologiko</AttributeValue>
+                        <AttributeValue DataType="string">Πνευμονολογικό</AttributeValue>
                         <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" AttributeId="sect" DataType="string" Issuer="" MustBePresent="true"/>
                     </Match>
                     <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="string">flwrinas</AttributeValue>
+                        <AttributeValue DataType="string">ΓΝ Λαμίας</AttributeValue>
                         <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment" AttributeId="hosp" DataType="string" Issuer="" MustBePresent="true"/>
                     </Match>
                 </AllOf>

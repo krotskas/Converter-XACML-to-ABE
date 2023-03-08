@@ -53,9 +53,6 @@ public class EncDecSoftware {
         else {
             return "Something was Wrong!!!!!";
         }
-
-
-
     }
 
     public String AnyOfHandler(NodeList AnyOfChild) {
